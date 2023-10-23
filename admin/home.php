@@ -131,3 +131,64 @@
     </div>
 </div>
 <hr>
+<h4>See The Graphical View</h4>
+
+<!-- / Grap Area Start -->
+<div class="graph-section">
+	<div class="row">
+		<div class="col-6">
+			<div class="single-graph">
+				<canvas width="600" height="600" id="adminPieChart"></canvas>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="single-graph">
+				<canvas width="600" height="600" id="adminBarChart"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / Grap Area End -->
+
+<script>
+$(document).ready(function(){
+	var ctx = document.getElementById("adminPieChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'pie',
+		data: {
+			labels: ["Active Room",	"Inctive Room",	"Pending Reservation",	"Confirmed Reservation", "Cancelled Reservation", "Active Activities", "Inactive Activities", "Unread Inquiries"],
+			datasets: [{    
+				data: [5,	0,	0,	0, 2, 0, 4, 1, 0], // Specify the data values array
+			
+				borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896', '#ffc107', '#28a745', '#007bff', '#d81b60'], // Add custom color border 
+				backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896', '#ffc107', '#28a745', '#007bff', '#d81b60'], // Add custom color background (Points and Fill)
+				borderWidth: 1 // Specify bar border width
+			}]},         
+		options: {
+		responsive: true, // Instruct chart js to respond nicely.
+		maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+		}
+	});
+
+	var ctx = document.getElementById("adminBarChart");
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["Active Room",	"Inctive Room",	"Pending Reservation",	"Confirmed Reservation", "Cancelled Reservation", "Active Activities", "Inactive Activities", "Unread Inquiries"],
+			datasets: [{
+				label: '# Total History',
+				data: [5, 0, 0, 0, 2, 0, 4, 1, 0], // Specify the data values array
+			
+				borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896', '#ffc107', '#28a745', '#007bff', '#d81b60'], // Add custom color border 
+				backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896', '#ffc107', '#28a745', '#007bff', '#d81b60'], // Add custom color background (Points and Fill)
+				borderWidth: 1 // Specify bar border width
+
+			}]},         
+		options: {
+			responsive: true, // Instruct chart js to respond nicely.
+			maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+		}
+	});
+
+});
+</script>
